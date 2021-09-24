@@ -10,18 +10,20 @@ public class Mundo {
 	public static List<Blocos> blocos = new ArrayList<Blocos>();
 	
 	public Mundo() {
-		for(int xx = 0; xx < 15; xx++) {
+		int sizeScreen = 18;
+		
+		for(int xx = 0; xx < sizeScreen; xx++) {
 			blocos.add(new Blocos(xx*32,0));
 		}
 		
-		for(int xx = 0; xx < 15; xx++) {
-			blocos.add(new Blocos(xx*32,480-32));
+		for(int xx = 0; xx < sizeScreen; xx++) {
+			blocos.add(new Blocos(xx*32,580-32));
 		}
-		for(int yy = 0; yy < 15; yy++) {
+		for(int yy = 0; yy < sizeScreen; yy++) {
 			blocos.add(new Blocos(0,yy*32));
 		}
-		for(int yy = 0; yy < 15; yy++) {
-			blocos.add(new Blocos(480-32,yy*32));
+		for(int yy = 0; yy < sizeScreen; yy++) {
+			blocos.add(new Blocos(580-32,yy*32));
 		}
 	}
 	

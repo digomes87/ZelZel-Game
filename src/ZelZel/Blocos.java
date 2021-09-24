@@ -11,7 +11,6 @@ public class Blocos extends  Rectangle{
 	}
 	
 	public void render(Graphics g) {
-		g.setColor(Color.yellow);
-		g.fillRect(x, y, width, height);
+		g.drawImage(SprintSheet.tileWall, x, y, 32,32, null);
 	}
 }
