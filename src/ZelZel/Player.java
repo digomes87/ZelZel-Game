@@ -16,9 +16,12 @@ public class Player extends Rectangle{
 	public int curFrames = 0, targetFrames = 15;
 	
 	//system for bullets
-	public List<Bullets> bullets = new ArrayList<Bullets>();
+	public static List<Bullets> bullets = new ArrayList<Bullets>();
 	
 	public boolean shoot = false;
+	
+	//the last direction of player
+	public int dir = 1;
 	
 	public Player(int x, int y) {
 		super(x, y, 32, 32);
@@ -31,9 +34,11 @@ public class Player extends Rectangle{
 		if(right && Mundo.isFree(x+spd, y)) {
 			x+=spd;
 			moved = true;
+			dir = 1;
 		}else if(left && Mundo.isFree(x-spd, y)) {
 			x-=spd;
 			moved = true;
+			dir = -1;
 		}
 		
 		if(up && Mundo.isFree(x, y-spd)) {
@@ -59,9 +64,11 @@ public class Player extends Rectangle{
 		
 		if(shoot) {
 			shoot =false;
-			bullets.add(new Bullets(x,y, 1));
+			bullets.add(new Bullets(x,y, dir));
 		}
 		
+		
+		//update bullets shot
 		for(int i = 0; i < bullets.size(); i++) {
 			bullets.get(i).tick();
 		}
