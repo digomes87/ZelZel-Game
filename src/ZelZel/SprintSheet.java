@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 
 public class SprintSheet {
 	public static BufferedImage spritesheet;
-	public static BufferedImage player_front;
+	public static BufferedImage[] player_front;
 	public static BufferedImage tileWall;
 	
 	public SprintSheet() {
@@ -17,7 +17,7 @@ public class SprintSheet {
 			e.printStackTrace();
 		}
 		
-		player_front = SprintSheet.getSprinte(0, 11, 16, 16);
+		player_front = new BufferedImage[3];
 		tileWall = SprintSheet.getSprinte(301, 238, 14, 14);
 	}
 	
