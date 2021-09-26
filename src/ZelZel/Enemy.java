@@ -10,7 +10,7 @@ public class Enemy extends Rectangle{
 	
 	//var de controle
 	public int right=1, up=0, down=0, left=0;
-	public int spd = 4;
+	public int spd = 2;
 	
 	public int curAnimation = 0;
 	public int curFrames = 0, targetFrames = 15;
@@ -26,14 +26,29 @@ public class Enemy extends Rectangle{
 	public Enemy(int x, int y) {
 		super(x, y, 32, 32);
 	}
+	
+	//enemy follow player
+	public void followPlayer() {
+		Player p = Game.player;
+		
+		if(x < p.x && Mundo.isFree(x+spd, y)) {
+			x+=spd;
+		}else if(x >p.x && Mundo.isFree(x-spd, y)) {
+			x-=spd;
+		}
+		
+		if(y < p.y && Mundo.isFree(x, y+spd)) {
+			y+=spd;
+		}else if(y > p.y && Mundo.isFree(x, y-spd)) {
+			y-=spd;
+		}
+	}
 
 	//TO DO corrigir a orientacao dos movimentos
 	public void tick() {
 		boolean moved = false;
 		
-		if(right == 1) {
-			x++;
-		}
+		followPlayer();
 		
 		if(moved) {
 			// This code bellow is for change sprintSheet and make the moviment

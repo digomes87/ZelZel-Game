@@ -16,7 +16,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	
 	public static int WIDTH = 580, HEIGHT = 580;
 	public static int SCALE = 3;
-	public Player player;
+	public static Player player;
 	public Mundo mundo;
 	public List<Enemy> enemys = new ArrayList<Enemy>();
 	
@@ -118,6 +118,11 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		//key for get bullet shoot
 		if(e.getKeyCode() == KeyEvent.VK_Z) {
 			player.shoot = true;
+		}
+		
+		//exit game
+		if(e.getKeyCode() == KeyEvent.VK_Q) {
+			System.exit(0);
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
