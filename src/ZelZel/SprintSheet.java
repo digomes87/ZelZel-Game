@@ -17,7 +17,9 @@ public class SprintSheet {
 			e.printStackTrace();
 		}
 		
-		player_front = new BufferedImage[3];
+		player_front = new BufferedImage[2];
+		player_front[0] = SprintSheet.getSprinte(0, 11, 16, 16);
+		player_front[1] = spritesheet.getSubimage(16, 11, 16, 16);
 		tileWall = SprintSheet.getSprinte(301, 238, 14, 14);
 	}
 	
