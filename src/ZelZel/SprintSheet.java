@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 public class SprintSheet {
 	public static BufferedImage spritesheet;
 	public static BufferedImage[] player_front;
+	public static BufferedImage[] enemy_front;
 	public static BufferedImage tileWall;
 	
 	public SprintSheet() {
@@ -18,8 +19,14 @@ public class SprintSheet {
 		}
 		
 		player_front = new BufferedImage[2];
+		enemy_front = new BufferedImage[2];
+		
 		player_front[0] = SprintSheet.getSprinte(0, 11, 16, 16);
 		player_front[1] = spritesheet.getSubimage(16, 11, 16, 16);
+		
+		enemy_front[0] = SprintSheet.getSprinte(293, 298, 16, 16);
+		enemy_front[1] = spritesheet.getSubimage(338, 300, 16, 16);
+		
 		tileWall = SprintSheet.getSprinte(301, 238, 14, 14);
 	}
 	

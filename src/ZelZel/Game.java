@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -16,6 +18,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	public static int SCALE = 3;
 	public Player player;
 	public Mundo mundo;
+	public List<Enemy> enemys = new ArrayList<Enemy>();
 	
 	
 
@@ -25,12 +28,16 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		
 		new SprintSheet();
 		player = new Player(32,32);
+		enemys.add(new Enemy(32,32));
 		mundo = new Mundo();
 	}
 	
 	//metodo que chama outros metodos
 	public void tick() {
 		player.tick();
+		for(int i=0; i < enemys.size(); i++) {
+			enemys.get(i).tick();
+		}
 		
 	}
 	
@@ -46,6 +53,13 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		g.setColor(new Color(0,135,13));
 		g.fillRect(0, 0, WIDTH* SCALE, HEIGHT * SCALE);
 		player.render(g);
+		
+		//render enemy
+		for(int i=0; i < enemys.size(); i++) {
+			enemys.get(i).render(g);
+		}
+		
+		
 		mundo.render(g);
 		bs.show();
 	}
