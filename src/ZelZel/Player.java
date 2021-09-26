@@ -65,6 +65,7 @@ public class Player extends Rectangle{
 		if(shoot) {
 			shoot =false;
 			bullets.add(new Bullets(x,y, dir));
+			
 		}
 		
 		
