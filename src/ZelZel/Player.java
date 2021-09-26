@@ -1,7 +1,9 @@
 package ZelZel;
-import java.awt.Color;
 import java.awt.Graphics;
+import java.util.List;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+
 
 
 public class Player extends Rectangle{
@@ -12,6 +14,11 @@ public class Player extends Rectangle{
 	
 	public int curAnimation = 0;
 	public int curFrames = 0, targetFrames = 15;
+	
+	//system for bullets
+	public List<Bullets> bullets = new ArrayList<Bullets>();
+	
+	public boolean shoot = false;
 	
 	public Player(int x, int y) {
 		super(x, y, 32, 32);
@@ -50,9 +57,22 @@ public class Player extends Rectangle{
 			}
 		}
 		
+		if(shoot) {
+			shoot =false;
+			bullets.add(new Bullets(x,y, 1));
+		}
+		
+		for(int i = 0; i < bullets.size(); i++) {
+			bullets.get(i).tick();
+		}
+		
 	}
 	
 	public void render(Graphics g) {
 		g.drawImage(SprintSheet.player_front[curAnimation], x,y, 32, 32, null );
+		
+		for(int i = 0; i < bullets.size(); i++) {
+			bullets.get(i).render(g);
+		}
 	}
 }
