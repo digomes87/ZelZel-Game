@@ -41,7 +41,7 @@ public class Enemy extends Rectangle{
 			if(curFrames == targetFrames) {
 				curFrames = 0;
 				curAnimation++;
-				if(curAnimation == SprintSheet.player_front.length) {
+				if(curAnimation == SprintSheet.enemy_front.length) {
 					curAnimation = 0;
 				}
 			}

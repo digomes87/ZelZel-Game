@@ -22,10 +22,10 @@ public class SprintSheet {
 		enemy_front = new BufferedImage[2];
 		
 		player_front[0] = SprintSheet.getSprinte(0, 11, 16, 16);
-		player_front[1] = spritesheet.getSubimage(16, 11, 16, 16);
+		player_front[1] = SprintSheet.getSprinte(16, 11, 16, 16);
 		
-		enemy_front[0] = SprintSheet.getSprinte(293, 298, 16, 16);
-		enemy_front[1] = spritesheet.getSubimage(338, 300, 16, 16);
+		enemy_front[0] = SprintSheet.getSprinte(280, 281, 16, 16);
+		enemy_front[1] = SprintSheet.getSprinte(339+16,20, 16, 16);
 		
 		tileWall = SprintSheet.getSprinte(301, 238, 14, 14);
 	}
