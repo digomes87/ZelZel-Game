@@ -1,8 +1,9 @@
 package ZelZel;
 import java.awt.Graphics;
-import java.util.List;
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 
@@ -32,15 +33,20 @@ public class Enemy extends Rectangle{
 		Player p = Game.player;
 		
 		if(x < p.x && Mundo.isFree(x+spd, y)) {
-			x+=spd;
+			if(new Random().nextInt(100)<50)
+				x+=spd;
+			
 		}else if(x >p.x && Mundo.isFree(x-spd, y)) {
-			x-=spd;
+			if(new Random().nextInt(100)<50)
+				x-=spd;
 		}
 		
 		if(y < p.y && Mundo.isFree(x, y+spd)) {
-			y+=spd;
+			if(new Random().nextInt(100)<50)
+				y+=spd;
 		}else if(y > p.y && Mundo.isFree(x, y-spd)) {
-			y-=spd;
+			if(new Random().nextInt(100)<50)
+				y-=spd;
 		}
 	}
 
